@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: messageapi-service
+spec:
+  selector:
+    app: messageapi
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+    nodePort: 30000
+  type: NodePort
+  #type: ClusterIP # the default
