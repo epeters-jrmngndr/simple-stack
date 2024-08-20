@@ -1,2 +1,3 @@
 # simple-stack
-A simple deployment with Kubernetes, including monitoring
+
+A simple deployment with Kubernetes, including monitoring by Prometheus
