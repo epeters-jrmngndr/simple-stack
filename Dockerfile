@@ -1,10 +1,13 @@
-FROM python:3.10-slim
+FROM alpine:3.14
 
 WORKDIR /message
 
 COPY server.py /message
 COPY requirements.txt /message
-RUN pip install -r requirements.txt
+RUN apk add python3
+RUN apk add curl
+RUN python3 -m ensurepip
+RUN pip3 install -r requirements.txt
 
 EXPOSE 8080
 

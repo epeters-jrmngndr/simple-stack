@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: messageapi-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: messageapi
+  template:
+    metadata:
+      labels:
+        app: messageapi
+    spec:
+      containers:
+      - name: messageapi
+        image: jrmngndr/message-api
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DEFAULT_MESSAGE
+          value: "Message API has been deployed into the Kubernetes cluster, loading this message from the manifest."
