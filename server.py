@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 from fastapi import FastAPI, Response, Request, status
+from prometheus_fastapi_instrumentator import Instrumentator
 
 DEFAULT_MESSAGE = os.getenv(
     "DEFAULT_MESSAGE",
@@ -8,8 +9,10 @@ DEFAULT_MESSAGE = os.getenv(
 )
 CUSTOM_MESSAGE = None
 
-
 app = FastAPI()
+Instrumentator().instrument(app).expose(
+    app
+)  # Use FastAPI instrumentor to expose basic FastAPI metrics
 
 
 @app.get("/message")
