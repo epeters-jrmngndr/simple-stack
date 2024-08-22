@@ -22,6 +22,9 @@ To build the image with a different tag, you would run `docker build -t my-prefi
 
 You would also need to change the values in the manifests to `my-prefix`, as otherwise the cluster will not build with the image you've created locally.
 
+## Metrics
+
+The server exposes the default metrics captured and updated by the `prometheus_fastapi_instrumentator` package. One of those metric is `http_requests_total`, which is simple enough to serve as a good example.
 
 ## Testing the MessageAPI
 
